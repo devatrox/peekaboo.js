@@ -8,7 +8,7 @@
   ],
   "main": [
     "jquery.peekaboo.js",
-    "jquery.peekaboo.css"
+    "peekaboo.css"
   ],
   "ignore": [
     "test"
