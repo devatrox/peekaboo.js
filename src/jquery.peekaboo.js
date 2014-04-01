@@ -22,25 +22,36 @@
       if (typeof(delay)==='undefined') delay = 0;
 
       if (open === true) {
-        $this.transition({
-          x: 0,
-          duration: settings.duration,
-          delay: delay,
-          easing: settings.easing
-        }, function() {
-          $this.toggleClass('peekaboo--open peekaboo--closed');
+        if($.support.transform) {
+          $this.transition({
+            x: 0,
+            duration: settings.duration,
+            delay: delay,
+            easing: settings.easing
+          }, function() {
+            $this.toggleClass('peekaboo--open peekaboo--closed');
+            open = false;
+          });
+        } else {
+          $this.css(settings.position, '-' + settings.width + 'px').toggleClass('peekaboo--open peekaboo--closed');
           open = false;
-        });
+        }
+
       } else {
-        $this.transition({
-          x: (settings.position == 'left' ? settings.width : '-' + settings.width),
-          duration: settings.duration,
-          delay: delay,
-          easing: settings.easing
-        }, function() {
-          $this.toggleClass('peekaboo--open peekaboo--closed');
+        if($.support.transform) {
+          $this.transition({
+            x: (settings.position == 'left' ? settings.width : '-' + settings.width),
+            duration: settings.duration,
+            delay: delay,
+            easing: settings.easing
+          }, function() {
+            $this.toggleClass('peekaboo--open peekaboo--closed');
+            open = true;
+          });
+        } else {
+          $this.css(settings.position, 0).toggleClass('peekaboo--open peekaboo--closed');
           open = true;
-        });
+        }
       }
     };
 
