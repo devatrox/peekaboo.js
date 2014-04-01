@@ -14,6 +14,17 @@ module.exports = function(grunt) {
         files: {
           'jquery.peekaboo.min.js': ['src/jquery.peekaboo.js']
         }
+      },
+      lib: {
+        options: {
+          preserveComments: 'some',
+          mangle: {
+            except: ['jQuery']
+          }
+        },
+        files: {
+          'lib/jquery.transit.min.js': ['bower_components/jquery.transit/jquery.transit.js']
+        }
       }
     },
 
@@ -21,9 +32,17 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'src',
-          src: ['jquery.peekaboo.js'],
-          dest: '.'
+          src: ['src/jquery.peekaboo.js'],
+          dest: '.',
+          filter: 'isFile',
+          flatten: true
+        },
+        {
+          expand: true,
+          src: ['bower_components/jquery/jquery.min.js'],
+          dest: 'lib/',
+          filter: 'isFile',
+          flatten: true
         }]
       }
     },
@@ -40,7 +59,10 @@ module.exports = function(grunt) {
           linebreak: true
         },
         files: {
-          src: ['jquery.peekaboo.js', 'jquery.peekaboo.min.js']
+          src: [
+            'jquery.peekaboo.js',
+            'jquery.peekaboo.min.js'
+          ]
         }
       }
     }
