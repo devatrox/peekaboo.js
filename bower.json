@@ -1,7 +1,7 @@
 {
   "name": "peekaboo.js",
   "description": "A lightweight slide-out widget",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/devatrox/peekaboo.js",
   "authors": [
     "Jason Nickel <mail@devatrox.de>"
@@ -11,10 +11,15 @@
     "peekaboo.css"
   ],
   "ignore": [
-    "test"
+    "test",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
   ],
   "dependencies": {
     "jquery": ">=1.10.2",
     "jquery.transit": "~0.9.9"
-  }
+  },
+  "license": "MIT"
 }
