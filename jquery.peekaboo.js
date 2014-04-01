@@ -1,6 +1,6 @@
 /*!
 * peekaboo.js - A lightweight slide-out widget
-* v1.0.0
+* v1.0.2
 * https://github.com/devatrox/peekaboo.js
 */
 
