@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SlideOut Test</title>
+  <link rel="stylesheet" href="../peekaboo.css">
+  <link rel="stylesheet" href="../themes/default/style.css">
+  <style>body { background: #ccc; font-family: sans-serif; } a { color: #911; }</style>
+</head>
+<body>
+  <div id="annoyMe">
+    <h1>Headline</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, sapiente nesciunt nemo iure pariatur consequuntur quo dignissimos obcaecati placeat rerum saepe omnis? Reiciendis, temporibus, officiis nobis facere quos quas vero?</p>
+    <p><a href="http://adamwhitcroft.com/batch/">Bullhorn icon</a> by <a href="https://twitter.com/adamwhitcroft">@adamwhitcroft</a></p>
+  </div>
+
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/jquery.transit/jquery.transit.js"></script>
+  <script src="../src/jquery.peekaboo.js"></script>
+  <script>
+  $(function() {
+    $('#annoyMe').peekaboo({
+      width: 400,
+      position: 'right',
+      startOpen: 500
+    });
+  });
+  </script>
+</body>
+</html>

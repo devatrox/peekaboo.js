@@ -1,0 +1,9 @@
+{
+  "name": "peekaboo.js",
+  "devDependencies": {
+    "grunt-banner": "~0.2.2",
+    "grunt": "~0.4.4",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-copy": "~0.5.0"
+  }
+}

@@ -1,0 +1,61 @@
+body {
+  overflow-x: hidden;
+}
+
+.peekaboo {
+  position: absolute;
+  z-index: 1337;
+  box-sizing: content-box;
+  -webkit-backface-visibility: hidden;
+}
+.peekaboo.peekaboo--left {
+  padding-right: 20px;
+}
+.peekaboo.peekaboo--right {
+  padding-left: 20px;
+}
+
+.peekaboo__content {
+  position: relative;
+  z-index: 200;
+}
+
+.peekaboo__toggle {
+  display: block;
+  position: absolute;
+  top: 0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  z-index: 100;
+}
+.peekaboo--left .peekaboo__toggle {
+  right: 0;
+}
+.peekaboo--right .peekaboo__toggle {
+  left: 0;
+}
+
+.peekaboo__toggle-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 100%;
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Veeery basic theming options */
+.peekaboo__content {
+  background: white;
+  padding: 1px;
+}
+
+.peekaboo__toggle {
+  background: red;
+  width: 20px;
+  height: 100%;
+}
