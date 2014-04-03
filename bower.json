@@ -1,7 +1,7 @@
 {
   "name": "peekaboo.js",
   "description": "A lightweight slide-out widget",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/devatrox/peekaboo.js",
   "authors": [
     "Jason Nickel <mail@devatrox.de>"
