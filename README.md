@@ -10,9 +10,9 @@ Include the following in your HTML:
 ``` html
 <link rel="stylesheet" href="peekaboo.css">
 <link rel="stylesheet" href="themes/default/style.css"> <!-- This is optional but recommended -->
-<script src='jquery.js'></script>
-<script src='jquery.transit.js'></script>
-<script src='jquery.peekaboo.js'></script>
+<script src='lib/jquery.min.js'></script>
+<script src='lib/jquery.transit.min.js'></script>
+<script src='jquery.peekaboo.min.js'></script>
 ```
 
 Initalise the script:
