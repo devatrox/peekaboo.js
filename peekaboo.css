@@ -18,6 +18,15 @@ body {
 .peekaboo__content {
   position: relative;
   z-index: 200;
+  *zoom: 1;
+}
+.peekaboo__content:before,
+.peekaboo__content:after {
+  content: ' ';
+  display: table;
+}
+.peekaboo__content:after {
+  clear: both;
 }
 
 .peekaboo__toggle {
