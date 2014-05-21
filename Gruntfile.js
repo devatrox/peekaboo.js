@@ -39,11 +39,37 @@ module.exports = function(grunt) {
         },
         {
           expand: true,
+          src: ['src/peekaboo.css'],
+          dest: '.',
+          filter: 'isFile',
+          flatten: true
+        },
+        {
+          expand: true,
+          src: ['src/theme/*'],
+          dest: 'themes/default',
+          filter: 'isFile',
+          flatten: true
+        },
+        {
+          expand: true,
           src: ['bower_components/jquery/jquery.min.js'],
           dest: 'lib/',
           filter: 'isFile',
           flatten: true
         }]
+      }
+    },
+
+    autoprefixer: {
+      dist: {
+        options: {
+          browsers: ['> 5%', 'last 2 versions', 'Explorer >= 8']
+        },
+        src: [
+          'themes/default/style.css',
+          'peekaboo.css'
+        ]
       }
     },
 
@@ -60,6 +86,8 @@ module.exports = function(grunt) {
         },
         files: {
           src: [
+            'themes/default/style.css',
+            'peekaboo.css',
             'jquery.peekaboo.js',
             'jquery.peekaboo.min.js'
           ]
@@ -70,8 +98,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-banner');
 
-  grunt.registerTask('default', ['uglify', 'copy', 'usebanner']);
+  grunt.registerTask('default', ['uglify', 'copy', 'autoprefixer', 'usebanner']);
 
 };
