@@ -1,9 +1,3 @@
-/*!
-* peekaboo.js - A lightweight slide-out widget
-* v1.2.0
-* https://github.com/devatrox/peekaboo.js
-*/
-
 .peekaboo.peekaboo--left {
   padding-right: 40px;
 }
@@ -31,39 +25,29 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
   background-color: #911;
   background-image: url(bullhorn.png);
-  background-image: -webkit-linear-gradient(left, transparent, rgba(0,0,0,0.2)), url(bullhorn.png);
   background-image: linear-gradient(to right, transparent, rgba(0,0,0,0.2)), url(bullhorn.png);
   background-position: center center;
   background-repeat: no-repeat;
   top: 5px;
   width: 40px;
   height: 40px;
-  -webkit-transition: -webkit-transform 100ms ease;
   transition: transform 100ms ease;
 }
 
 .peekaboo--left .peekaboo__toggle {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  -webkit-transform: translateX(-3px);
-  -ms-transform: translateX(-3px);
   transform: translateX(-3px);
 }
 .peekaboo--left .peekaboo__toggle:hover {
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
   transform: translateX(0);
 }
 
 .peekaboo--right .peekaboo__toggle {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  -webkit-transform: translateX(3px);
-  -ms-transform: translateX(3px);
   transform: translateX(3px);
 }
 .peekaboo--right .peekaboo__toggle:hover {
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
   transform: translateX(0);
 }
