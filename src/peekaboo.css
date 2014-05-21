@@ -8,12 +8,6 @@ body {
   box-sizing: content-box;
   -webkit-backface-visibility: hidden;
 }
-.peekaboo.peekaboo--left {
-  padding-right: 20px;
-}
-.peekaboo.peekaboo--right {
-  padding-left: 20px;
-}
 
 .peekaboo__content {
   position: relative;
@@ -56,4 +50,11 @@ body {
   background: red;
   width: 20px;
   height: 100%;
+}
+
+.peekaboo--left {
+  padding-right: 20px;
+}
+.peekaboo--right {
+  padding-left: 20px;
 }

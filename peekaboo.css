@@ -15,12 +15,6 @@ body {
   box-sizing: content-box;
   -webkit-backface-visibility: hidden;
 }
-.peekaboo.peekaboo--left {
-  padding-right: 20px;
-}
-.peekaboo.peekaboo--right {
-  padding-left: 20px;
-}
 
 .peekaboo__content {
   position: relative;
@@ -65,13 +59,9 @@ body {
   height: 100%;
 }
 
-/*.peekaboo__toggle--icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding-bottom: 100%;
-  display: block;
-  background-position: center;
-  background-repeat: no-repeat;
-}*/
+.peekaboo--left {
+  padding-right: 20px;
+}
+.peekaboo--right {
+  padding-left: 20px;
+}
