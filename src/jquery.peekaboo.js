@@ -11,7 +11,8 @@
       startOpen: false,
       startDelay: 200,
       duration: 300,
-      easing: 'ease'
+      easing: 'ease',
+      buttonText: ''
     }, options);
 
     if (!$.support.transition) $.fn.transition = $.fn.animate;
@@ -59,7 +60,7 @@
       .css(settings.position, '-' + settings.width + 'px')
       .addClass('peekaboo peekaboo--' + settings.position + ' peekaboo--closed')
       .wrapInner('<div class="peekaboo__content"/>')
-      .append('<button class="peekaboo__toggle"><span class="peekaboo__toggle-icon"/></button>');
+      .append('<button class="peekaboo__toggle">' + settings.buttonText + '</button>');
 
     var $content = $('.peekaboo__content', this);
     var $button = $('.peekaboo__toggle', this);
