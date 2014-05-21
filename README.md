@@ -28,6 +28,7 @@ $('#widget').peekaboo({
   startOpen: false,
   startDelay: 200,
   duration: 300,
-  easing: 'ease'
+  easing: 'ease',
+  buttonText: '' // HTML works, too
 })
 ```
