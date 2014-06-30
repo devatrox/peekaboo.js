@@ -5,9 +5,13 @@
     var $this = $(this);
 
     var settings = $.extend({
-      y: 100,
-      width: 400,
+      offsetTop: 0,
+      offsetRight: 0,
+      offsetBottom: 0,
+      offsetLeft: 0,
+      width: false,
       position: 'left',
+      direction: 'horizontal',
       startOpen: false,
       startDelay: 200,
       duration: 300,
@@ -15,57 +19,106 @@
       buttonText: ''
     }, options);
 
-    if (!$.support.transition) $.fn.transition = $.fn.animate;
+    var height = parseInt($this.height());
+    var width = parseInt((settings.width ? settings.width : $this.width()));
 
-    var open = false;
+    $(window).on('resize', function() {
+      height = parseInt($this.height());
+      width = parseInt((settings.width ? settings.width : $this.width()));
+    });
+
+    $this.css({ width: width, height: height });
+
+    // Check if Modernizr exists, else fake it
+    var support;
+
+    if (typeof Modernizr !== "undefined") {
+      support = Modernizr;
+    } else {
+      console.warn("peekaboo might not work in older browsers right now. Install Modernizr to enable basic support");
+      support = {
+        csstransitions: true,
+        csstransforms: true,
+      };
+    }
+
+    if (!support.csstransitions) {
+      console.log("Using $.fn.animate");
+      $.fn.transition = $.fn.animate;
+    }
+
+    var isOpen = false;
 
     var toggle = function(delay) {
-      if (typeof(delay)==='undefined') delay = 0;
+      if (typeof(delay) === "undefined") delay = 0;
+      $this.toggleClass('peekaboo--open peekaboo--closed');
 
-      if (open === true) {
-        if($.support.transform) {
-          $this.transition({
-            x: 0,
-            duration: settings.duration,
-            delay: delay,
-            easing: settings.easing
-          }, function() {
-            $this.toggleClass('peekaboo--open peekaboo--closed');
-            open = false;
-          });
-        } else {
-          $this.css(settings.position, '-' + settings.width + 'px').toggleClass('peekaboo--open peekaboo--closed');
-          open = false;
-        }
+      if (isOpen === true) {
+
+        $this.transition({
+          translate: [0, 0]
+        }, settings.duration, settings.easing, function() {
+          isOpen = false;
+        });
 
       } else {
-        if($.support.transform) {
-          $this.transition({
-            x: (settings.position == 'left' ? settings.width : '-' + settings.width),
-            duration: settings.duration,
-            delay: delay,
-            easing: settings.easing
-          }, function() {
-            $this.toggleClass('peekaboo--open peekaboo--closed');
-            open = true;
-          });
-        } else {
-          $this.css(settings.position, 0).toggleClass('peekaboo--open peekaboo--closed');
-          open = true;
+
+        switch (settings.position) {
+
+          case "right":
+            $this.transition({
+              x: '-' + width,
+              delay: delay
+            }, settings.duration, settings.easing, function() {
+              isOpen = true;
+            });
+            break;
+
+          case "top":
+            $this.transition({
+              y: height,
+              delay: delay
+            }, settings.duration, settings.easing, function() {
+              isOpen = true;
+            });
+            break;
+
+          case "bottom":
+            $this.transition({
+              y: '-' + height,
+              delay: delay
+            }, settings.duration, settings.easing, function() {
+              isOpen = true;
+            });
+            break;
+
+          default:
+            $this.transition({
+              x: width,
+              delay: delay
+            }, settings.duration, settings.easing, function() {
+              isOpen = true;
+            });
         }
       }
     };
 
-    $this.css({ width: settings.width, top: settings.y })
-      .css(settings.position, '-' + settings.width + 'px')
-      .addClass('peekaboo peekaboo--' + settings.position + ' peekaboo--closed')
+    $this.addClass('peekaboo peekaboo--' + settings.position + ' peekaboo--closed')
       .wrapInner('<div class="peekaboo__content"/>')
       .append('<button class="peekaboo__toggle">' + settings.buttonText + '</button>');
 
+    if (settings.position == "right") {
+      $this.css({right: 0 - width + settings.offsetRight, top: 0 + settings.offsetTop});
+    } else if (settings.position == "top") {
+      $this.css({top: 0 - height + settings.offsetTop, left: 0 + settings.offsetLeft});
+    } else if (settings.position == "bottom") {
+      $this.css({bottom: 0 - height + settings.offsetBottom, left: 0 + settings.offsetLeft});
+    } else {
+      $this.css({left: 0 - width + settings.offsetLeft, top: 0 + settings.offsetTop});
+    }
+
     var $content = $('.peekaboo__content', this);
     var $button = $('.peekaboo__toggle', this);
-
-    $this.css({ height: this.height() });
 
     if (settings.startOpen === true) {
       toggle(settings.startDelay);

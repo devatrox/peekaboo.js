@@ -1,9 +1,14 @@
 .peekaboo--left {
   padding-right: 40px;
 }
-
 .peekaboo--right {
   padding-left: 40px;
+}
+.peekaboo--top {
+  padding-bottom: 40px;
+}
+.peekaboo--bottom {
+  padding-top: 40px;
 }
 
 .peekaboo__content {
@@ -28,7 +33,6 @@
   background-image: linear-gradient(to right, transparent, rgba(0,0,0,0.2)), url(bullhorn.png);
   background-position: center center;
   background-repeat: no-repeat;
-  top: 5px;
   width: 40px;
   height: 40px;
   transition: transform 100ms ease;

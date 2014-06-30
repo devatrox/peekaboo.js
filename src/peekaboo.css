@@ -26,7 +26,6 @@ body {
 .peekaboo__toggle {
   display: block;
   position: absolute;
-  top: 0;
   border: 0;
   padding: 0;
   cursor: pointer;
@@ -34,10 +33,20 @@ body {
   z-index: 100;
 }
 .peekaboo--left .peekaboo__toggle {
+  top: 0;
   right: 0;
 }
 .peekaboo--right .peekaboo__toggle {
+  top: 0;
   left: 0;
+}
+.peekaboo--top .peekaboo__toggle {
+  left: 0;
+  bottom: 0;
+}
+.peekaboo--bottom .peekaboo__toggle {
+  left: 0;
+  top: 0;
 }
 
 /* Veeery basic theming options */
@@ -57,4 +66,10 @@ body {
 }
 .peekaboo--right {
   padding-left: 20px;
+}
+.peekaboo--top {
+  padding-bottom: 20px;
+}
+.peekaboo--bottom {
+  padding-top: 20px;
 }

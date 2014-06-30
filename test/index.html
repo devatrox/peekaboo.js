@@ -3,25 +3,26 @@
 <head>
   <title>SlideOut Test</title>
   <link rel="stylesheet" href="../src/peekaboo.css">
-  <link rel="stylesheet" href="../src/theme/style.css">
+  <!-- <link rel="stylesheet" href="../src/theme/style.css"> -->
   <style>body { background: #ccc; font-family: sans-serif; } a { color: #911; }</style>
 </head>
 <body>
-  <div id="annoyMe">
+  <div id="annoyMe" style="width: 500px;">
     <h1>Headline</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, sapiente nesciunt nemo iure pariatur consequuntur quo dignissimos obcaecati placeat rerum saepe omnis? Reiciendis, temporibus, officiis nobis facere quos quas vero?</p>
     <p><a href="http://adamwhitcroft.com/batch/">Bullhorn icon</a> by <a href="https://twitter.com/adamwhitcroft">@adamwhitcroft</a></p>
   </div>
 
+  <script src="../bower_components/modernizr/modernizr.js"></script>
   <script src="../bower_components/jquery/jquery.min.js"></script>
   <script src="../bower_components/jquery.transit/jquery.transit.js"></script>
   <script src="../src/jquery.peekaboo.js"></script>
   <script>
   $(function() {
     $('#annoyMe').peekaboo({
-      width: 400,
-      position: 'right',
-      startOpen: true,
+      // width: 400,
+      position: 'top',
+      // startOpen: true,
       // buttonText: 'O'
     });
   });
