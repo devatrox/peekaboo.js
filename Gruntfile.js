@@ -4,12 +4,14 @@ module.exports = function(grunt) {
     bwr: grunt.file.readJSON('bower.json'),
 
     uglify: {
+      options: {
+        mangle: {
+          except: ['jQuery']
+        }
+      },
       dist: {
         options: {
           preserveComments: false,
-          mangle: {
-            except: ['jQuery']
-          }
         },
         files: {
           'jquery.peekaboo.min.js': ['src/jquery.peekaboo.js']
@@ -18,9 +20,6 @@ module.exports = function(grunt) {
       lib: {
         options: {
           preserveComments: 'some',
-          mangle: {
-            except: ['jQuery']
-          }
         },
         files: {
           'lib/jquery.transit.min.js': ['bower_components/jquery.transit/jquery.transit.js']
@@ -93,14 +92,38 @@ module.exports = function(grunt) {
           ]
         }
       }
-    }
+    },
+
+    compress: {
+      build: {
+        options: {
+          archive: 'peekaboo.js-v<%= bwr.version %>.zip'
+        },
+        files: [
+          {
+            src: [
+              'lib/**',
+              'themes/**',
+              'jquery.peekaboo.js',
+              'jquery.peekaboo.min.js',
+              'peekaboo.css',
+              'LICENSE',
+              'README.md'
+            ],
+            dest: '.',
+          },
+        ],
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-banner');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
   grunt.registerTask('default', ['uglify', 'copy', 'autoprefixer', 'usebanner']);
+  grunt.registerTask('build', ['default', 'compress']);
 
 };
